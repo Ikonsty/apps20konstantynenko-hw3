@@ -28,8 +28,8 @@ public class SmartArrayApp {
 
         MyComparator cmp = new MyComparator() {
             @Override
-            public int compare(Object o1, Object o2) {
-                return ((Integer) o1) - ((Integer) o2);
+            public int compare(Object objOne, Object objTwo) {
+                return ((Integer) objOne) - ((Integer) objTwo);
             }
         };
 
@@ -63,14 +63,14 @@ public class SmartArrayApp {
         // Hint: to convert Object[] to String[] - use the following code
         //Object[] result = studentSmartArray.toArray();
         //return Arrays.copyOf(result, result.length, String[].class);
-        MyPredicate pr1 = new MyPredicate() {
+        MyPredicate predicateOne = new MyPredicate() {
             @Override
             public boolean test(Object st) {
                 return ((Student) st).getYear() == 2;
             }
         };
 
-        MyPredicate pr2 = new MyPredicate() {
+        MyPredicate predicateTwo = new MyPredicate() {
             @Override
             public boolean test(Object st) {
                 return ((Student) st).getGPA() >= 4;
@@ -79,8 +79,8 @@ public class SmartArrayApp {
 
         MyComparator cmp = new MyComparator() {
             @Override
-            public int compare(Object o1, Object o2) {
-                return ((Student) o1).getSurname().compareToIgnoreCase(((Student) o2).getSurname());
+            public int compare(Object objOne, Object objTwo) {
+                return ((Student) objOne).getSurname().compareToIgnoreCase(((Student) objTwo).getSurname());
             }
         };
 
@@ -88,8 +88,8 @@ public class SmartArrayApp {
         SmartArray sa = new BaseArray(students);
 
         sa = new DistinctDecorator(sa).deleteDoubles();
-        sa = new FilterDecorator(sa, pr1).filter();
-        sa = new FilterDecorator(sa, pr2).filter();
+        sa = new FilterDecorator(sa, predicateOne).filter();
+        sa = new FilterDecorator(sa, predicateTwo).filter();
         sa = new SortDecorator(sa, cmp).sortComp();
 
         Object[] st = sa.toArray();

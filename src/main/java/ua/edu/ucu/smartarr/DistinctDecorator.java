@@ -12,20 +12,20 @@ public class DistinctDecorator extends SmartArrayDecorator {
 
     public SmartArray deleteDoubles() {
         Object[] obj = smartArray.toArray();
-        List<Object> new_el = new ArrayList<>();
+        List<Object> newEl = new ArrayList<>();
 
         boolean dupl = false;
         for (Object o: obj) {
-            for (Object was: new_el) {
+            for (Object was: newEl) {
                 if (o.toString().equals(was.toString())) {
                     dupl = true;
                     break;
                 }
             }
             if (!dupl) {
-                new_el.add(o);
+                newEl.add(o);
             }
         }
-        return new BaseArray(new_el.toArray());
+        return new BaseArray(newEl.toArray());
     }
 }

@@ -15,13 +15,13 @@ public class FilterDecorator extends SmartArrayDecorator {
 
     public SmartArray filter() {
         Object[] obj = smartArray.toArray();
-        List<Object> new_el = new ArrayList<>();
+        List<Object> newEl = new ArrayList<>();
 
         for (Object o: obj) {
             if (myPredicate.test(o)) {
-                new_el.add(o);
+                newEl.add(o);
             }
         }
-        return new BaseArray(new_el.toArray());
+        return new BaseArray(newEl.toArray());
     }
 }
