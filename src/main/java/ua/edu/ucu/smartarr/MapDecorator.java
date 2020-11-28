@@ -16,10 +16,10 @@ public class MapDecorator extends SmartArrayDecorator {
 
     public SmartArray map() {
         Object[] obj = smartArray.toArray();
-        List<Objects> new_el = new ArrayList<>();
+        List<Object> new_el = new ArrayList<>();
 
         for (Object o: obj) {
-            new_el.add((Objects) myFunction.apply(o));
+            new_el.add(myFunction.apply(o));
         }
         return new BaseArray(new_el.toArray());
     }

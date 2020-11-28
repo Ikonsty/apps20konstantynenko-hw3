@@ -29,8 +29,8 @@ public class Main {
         Integer[] integers = {-1, 2, 0, 1, -5, 3};
         SmartArray sa = new BaseArray(integers);
 
-        sa = new FilterDecorator(sa, pr); // Result: [2, 1, 3];
-        sa = new SortDecorator(sa, cmp); // Result: [1, 2, 3]
-        sa = new MapDecorator(sa, func); // Result: [2, 4, 6]
+        sa = new FilterDecorator(sa, pr).filter(); // Result: [2, 1, 3];
+        sa = new SortDecorator(sa, cmp).sortComp(); // Result: [1, 2, 3]
+        sa = new MapDecorator(sa, func).map(); // Result: [2, 4, 6]
     }
 }

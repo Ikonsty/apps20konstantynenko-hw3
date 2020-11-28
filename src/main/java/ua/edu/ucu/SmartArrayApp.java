@@ -1,6 +1,9 @@
 package ua.edu.ucu;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
 import ua.edu.ucu.functions.MyComparator;
 import ua.edu.ucu.functions.MyFunction;
 import ua.edu.ucu.functions.MyPredicate;
@@ -37,9 +40,9 @@ public class SmartArrayApp {
         // Input: [-1, 2, 0, 1, -5, 3]
         SmartArray sa = new BaseArray(integers);
 
-        sa = new FilterDecorator(sa, pr); // Result: [2, 1, 3];
-        sa = new SortDecorator(sa, cmp); // Result: [1, 2, 3]
-        sa = new MapDecorator(sa, func); // Result: [2, 4, 6]
+        sa = new FilterDecorator(sa, pr).filter(); // Result: [2, 1, 3];
+        sa = new SortDecorator(sa, cmp).sortComp(); // Result: [1, 2, 3]
+        sa = new MapDecorator(sa, func).map(); // Result: [2, 4, 6]
 
         // Alternative
 //        sa = new MapDecorator(
@@ -81,12 +84,17 @@ public class SmartArrayApp {
 
         SmartArray sa = new BaseArray(students);
 
-        sa = new DistinctDecorator(sa);
+        sa = new DistinctDecorator(sa).deleteDoubles();
         sa = new FilterDecorator(sa, pr1).filter();
         sa = new FilterDecorator(sa, pr2).filter();
         sa = new SortDecorator(sa, cmp).sortComp();
 
-        Object[] result = sa.toArray();
-        return Arrays.copyOf(result, result.length, String[].class);
+        Object[] st = sa.toArray();
+        List<String> result = new ArrayList<>();
+        for (Object s: st) {
+            result.add(((Student) s).getSurname() + " " + ((Student) s).getName());
+        }
+        Object[] res = result.toArray();
+        return Arrays.copyOf(res, res.length, String[].class);
     }
 }
