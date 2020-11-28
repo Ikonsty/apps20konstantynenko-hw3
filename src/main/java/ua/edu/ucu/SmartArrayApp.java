@@ -58,7 +58,8 @@ public class SmartArrayApp {
     }
 
     public static String[]
-            findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname(Student[] students) {
+            findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname
+            (Student[] students) {
 
         // Hint: to convert Object[] to String[] - use the following code
         //Object[] result = studentSmartArray.toArray();
@@ -80,7 +81,8 @@ public class SmartArrayApp {
         MyComparator cmp = new MyComparator() {
             @Override
             public int compare(Object objOne, Object objTwo) {
-                return ((Student) objOne).getSurname().compareToIgnoreCase(((Student) objTwo).getSurname());
+                return ((Student) objOne).getSurname().compareToIgnoreCase
+                        (((Student) objTwo).getSurname());
             }
         };
 
@@ -95,7 +97,8 @@ public class SmartArrayApp {
         Object[] st = sa.toArray();
         List<String> result = new ArrayList<>();
         for (Object s: st) {
-            result.add(((Student) s).getSurname() + " " + ((Student) s).getName());
+            result.add(((Student) s).getSurname() + " " + ((Student) s).
+                    getName());
         }
         Object[] res = result.toArray();
         return Arrays.copyOf(res, res.length, String[].class);

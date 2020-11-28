@@ -8,7 +8,8 @@ public class Main {
         Integer[] integers = {-1, 2, 0, 1, -5, 3};
 
         Integer[] res =
-                SmartArrayApp.filterPositiveIntegersSortAndMultiplyBy2(integers);
+                SmartArrayApp.filterPositiveIntegersSortAndMultiplyBy2
+                        (integers);
         System.out.println(Arrays.toString(res));
 
 
@@ -23,7 +24,9 @@ public class Main {
                 new Student("Ittai", "Zeidman", 4.5, 1),
                 new Student("Burr", "Sutter", 4.2, 2)};
         String[] studentNames =
-                SmartArrayApp.findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname(students);
+                SmartArrayApp.
+                        findDistinctStudentNamesFrom2ndYearWithGPAgt4AndOrderedBySurname
+                        (students);
         System.out.println(Arrays.toString(studentNames));
     }
 }
